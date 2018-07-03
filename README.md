@@ -37,7 +37,8 @@ Android蓝牙开发全面总结
 
 Android所有关于蓝牙开发的类都在android.bluetooth包下，只有8个类
 
-##1.BluetoothAdapter 蓝牙适配器
+1.BluetoothAdapter 蓝牙适配器
+=
 
 直到我们建立bluetoothSocket连接之前，都要不断操作它BluetoothAdapter里的方法很多，常用的有以下几个：
 
@@ -75,7 +76,8 @@ ACTION_FOUND：找到设备，这个Intent中包含两个extra fields：EXTRA_DE
 我们可以自己注册相应的BroadcastReceiver来接收响应的广播，以便实现某些功能
 
 
-##2.BluetoothDevice 描述了一个蓝牙设备
+2.BluetoothDevice 描述了一个蓝牙设备
+=
 
 createRfcommSocketToServiceRecord(UUIDuuid)根据UUID创建并返回一个BluetoothSocket
 
@@ -83,7 +85,8 @@ getState() 蓝牙状态这里要说一下，只有在 BluetoothAdapter.STATE_ON 
 这个方法也是我们获取BluetoothDevice的目的――创建BluetoothSocket
 这个类其他的方法，如getAddress(),getName(),同BluetoothAdapter
 
-##3.BluetoothServerSocket
+3.BluetoothServerSocket
+=
 
 这个类一种只有三个方法两个重载的accept(),accept(inttimeout)两者的区别在于后面的方法指定了过时时间，需要注意的是，执行这两个方法的时候，直到接收到了客户端的请求（或是过期之后），都会阻塞线程，应该放在新线程里运行！
 
@@ -104,7 +107,8 @@ getState() 蓝牙状态这里要说一下，只有在 BluetoothAdapter.STATE_ON 
 	Get the connection status of this socket, ie, whether there is an active connection with remote device.
 	判断当前的连接状态
 
-##4.BluetoothSocket
+4.BluetoothSocket
+=
 
 跟BluetoothServerSocket相对，是客户端一共5个方法，不出意外，都会用到
 	
@@ -114,7 +118,8 @@ getInptuStream()获取输入流
 getOutputStream()获取输出流
 getRemoteDevice()获取远程设备，这里指的是获取bluetoothSocket指定连接的那个远程蓝牙设备
 
-##5、BluetoothClass
+5、BluetoothClass
+=
 
 代表一个描述了设备通用特性和功能的蓝牙类。比如，一个蓝牙类会指定皆如电话、计算机或耳机的通用设备类型，可以提供皆如音频或者电话的服务。
 
@@ -211,7 +216,8 @@ public String toString ()
 
 以上是蓝牙主要操作的类。
 
-##基本用法：
+基本用法：
+==
 
 1、获取本地蓝牙适配器
 	
